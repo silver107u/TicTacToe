@@ -120,6 +120,63 @@ public class Bord {
         return 0;
     }
     
+    //check the winning criteria of players 
+    private boolean checkCriteria(int prime)
+    {
+        prime=prime*prime*prime;
+        for(int i=0;i<3;i++)
+        {
+            if(bord[i][0]*bord[i][0]*bord[i][0]==prime)
+            {
+                return true;
+            }
+        }
+        for(int j=0;j<3;j++)
+        {
+            if(bord[0][j]*bord[1][j]*bord[2][j]==prime)
+            {
+                return true;
+            }
+        }
+        if(bord[0][0]*bord[1][1]*bord[2][2]==prime)
+        {
+            return true;
+        }
+        if(bord[0][2]*bord[1][1]*bord[2][0]==prime)
+        {
+            return true;
+        }
+        return false;
+    }
     
+    
+    //check it the player won or not
+    public boolean checkWin(int player)
+    {
+        if(player ==1)
+        {
+            checkCriteria(3);
+        }
+        else 
+        {
+            checkCriteria(5);
+        }
+        return (false);
+    }
+    
+    public boolean isBordFilled()
+    {
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;i<3;j++)
+            {
+                if(bord[i][j]==2)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     
 }

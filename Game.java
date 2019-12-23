@@ -16,6 +16,8 @@ import javax.swing.JButton;
 public class Game extends javax.swing.JFrame {
 
     private JButton [][]button;
+    private Bord bord;   
+    private int player=1;
     /**
      * Creates new form Game
      */
@@ -42,6 +44,33 @@ public class Game extends javax.swing.JFrame {
         
     }
 
+      public void setPlayer(int value)
+      {
+          player=value;
+      }
+      public void refereshBordDisply()
+      {
+          for(int i=0;i<3;i++)
+          {
+              for(int j=0;j<3;j++)
+              {
+                  switch(bord.getBordValue(i, j))
+                  {
+                      case 2:
+                          button[i][j].setEnabled(true);
+                          break;
+                      case 3:
+                          button[i][j].setEnabled(false);
+                          button[i][j].setText("X");
+                          break;
+                      case 5:     
+                          button[i][j].setEnabled(false);
+                          button[i][j].setText("O");
+                          break;
+                  }
+              }
+          }
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -220,6 +249,10 @@ public class Game extends javax.swing.JFrame {
             public void run() {
                Game game = new Game();
                game.setVisible(true);
+               game.bord=new Bord();
+               game.bord.initializeBord();
+               game.setPlayer(1);
+               game.refereshBordDisply();
             }
         });
     }
