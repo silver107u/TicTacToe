@@ -8,6 +8,7 @@ package ticTacToe;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,15 +94,33 @@ public class Game extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -117,6 +136,11 @@ public class Game extends javax.swing.JFrame {
             }
         });
 
+        jButton8.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                jButton8ComponentResized(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -139,22 +163,26 @@ public class Game extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(31, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,32 +190,36 @@ public class Game extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(28, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,28 +227,567 @@ public class Game extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(1, 2, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(1, 2, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(2, 0, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(2, 0, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(2, 1, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(2, 1, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(2, 2, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(2, 2, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(1, 0, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(1, 0, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(0, 1, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(0, 1, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(0, 0, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(0, 0, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(1, 1, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(1, 1, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(player ==1)
+        {
+            bord.setBordValue(0, 2, 3);
+            this.refereshBordDisply();
+            if(bord.checkWin(1))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+        else 
+            //Player ==2
+        {
+            bord.setBordValue(0, 2, 5);
+            this.refereshBordDisply();
+            if(bord.checkWin(2))
+            {
+                JOptionPane.showMessageDialog(this, "CONGRATS YOU WIN");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else if(bord.isBordFilled())
+            {
+                JOptionPane.showMessageDialog(this, "GAME DRAW");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+            else 
+            {
+                this.setPlayer(3-player);
+                this.playComputer();
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton8ComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton8ComponentResized
+
+    }//GEN-LAST:event_jButton8ComponentResized
+
+    public void playComputer()
+    {
+        //1.possible win  which return button number
+        //the buttom number is not equal to zero
+        //2. possible win function all and pass 3-win player return buton number
+        //if button number is not equal to zero then play more
+        //3.buttonnumber return randon blank button play
+        //play move
+        
+        int buttonNumber;
+        buttonNumber=bord.possibleWin(player);
+        if(buttonNumber==0)
+        {
+            buttonNumber=bord.possibleWin(3-player);
+        }
+        if(buttonNumber==0)
+        {
+            buttonNumber=bord.randonBlankButton();
+        }
+        if(buttonNumber!=0)
+        {
+            switch(buttonNumber)
+            {
+                case 1: 
+                    bord.setBordValue(0, 0, player);
+                    this.refereshBordDisply();
+                    break;
+                case 2:
+                    bord.setBordValue(0, 1, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 3:
+                    bord.setBordValue(0, 2, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 4:
+                    bord.setBordValue(1, 0, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 5:
+                    bord.setBordValue(1, 1, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 6:
+                    bord.setBordValue(1, 2, player);
+                    this.refereshBordDisply();
+                    break;               
+                case 7:
+                    bord.setBordValue(2, 0, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 8:
+                    bord.setBordValue(2, 1, player);
+                    this.refereshBordDisply();
+                    break;                
+                case 9:
+                    bord.setBordValue(2, 2, player);
+                    this.refereshBordDisply();
+                    break;                
+            }
+            
+        }
+        if(bord.checkWin(player))
+            {
+                JOptionPane.showMessageDialog(this, "COMPUTER WINS");
+                bord.initializeBord();
+                this.refereshBordDisply();
+                this.setPlayer(1);
+            }
+        else if (bord.isBordFilled())
+        {
+             JOptionPane.showMessageDialog(this, "MATCH DRAW");
+             bord.initializeBord();
+             this.refereshBordDisply();
+             this.setPlayer(1);
+        }
+        else 
+        {
+            setPlayer(3-player);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

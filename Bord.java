@@ -27,7 +27,7 @@ public class Bord {
     {
         return bord[i][j];
     }
-    public void getBordValue(int i,int j, int value)
+    public void setBordValue(int i,int j, int value)
     {
         bord[i][j]=value;
     }
@@ -178,5 +178,73 @@ public class Bord {
         }
         return true;
     }
-    
+    public int randonBlankButton()
+    {
+        int count=0;
+        int s=0;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(bord[i][j]==2)
+                {
+                    count++;
+                }
+            }
+
+         }
+        int r=1+(int)Math.random()*count;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(bord[i][j]==2)
+                {
+                    s++;
+                }
+                if(r==s)
+                {
+                    if(i==0&&j==0)
+                    {
+                        return 1;
+                    }
+                    if(i==0&&j==1)
+                    {
+                        return 2;
+                    }
+                    if(i==0&&j==2)
+                    {
+                        return 3;
+                    }
+                    if(i==1&&j==0)
+                    {
+                        return 4;
+                    }
+                    if(i==1&&j==1)
+                    {
+                        return 5;
+                    }
+                    if(i==1&&j==2)
+                    {
+                        return 6;
+                    }
+                    if(i==2&&j==0)
+                    {
+                        return 7;
+                    }
+                    if(i==2&&j==1)
+                    {
+                        return 8;
+                    }
+                    if(i==2&&j==2)
+                    {
+                        return 9;
+                    }
+                }
+            
+            }   
+            
+        }
+        return 0;
+    }
 }
