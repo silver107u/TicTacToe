@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Game extends javax.swing.JFrame {
 
-    private JButton [][]button;
+    private JButton [][]button=new JButton[3][3];
     private Bord bord;   
     private int player=1;
     /**
@@ -41,7 +41,7 @@ public class Game extends javax.swing.JFrame {
         Toolkit tool=Toolkit.getDefaultToolkit();
         Image img=tool.getImage("D:\\NEWJAVA\\Tic-Tac-Toe\\src\\Gallery\\Icon.jpg");
         setIconImage(img);
-        setButtonReference();
+        
         
     }
 
@@ -94,48 +94,56 @@ public class Game extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton8.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 jButton8ComponentResized(evt);
@@ -147,6 +155,7 @@ public class Game extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -730,39 +739,102 @@ public class Game extends javax.swing.JFrame {
             switch(buttonNumber)
             {
                 case 1: 
-                    bord.setBordValue(0, 0, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(0, 0, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(0, 0, 5);
+                    }
                     this.refereshBordDisply();
                     break;
                 case 2:
-                    bord.setBordValue(0, 1, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(0, 1, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(0, 1, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 3:
-                    bord.setBordValue(0, 2, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(0, 2, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(0, 2, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 4:
-                    bord.setBordValue(1, 0, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(1, 0, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(1, 0, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 5:
-                    bord.setBordValue(1, 1, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(1, 1, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(1, 1, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 6:
-                    bord.setBordValue(1, 2, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(1, 2, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(1,2, 5);
+                    }
                     this.refereshBordDisply();
                     break;               
                 case 7:
-                    bord.setBordValue(2, 0, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(2, 0, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(2, 0, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 8:
-                    bord.setBordValue(2, 1, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(2, 1, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(2, 1, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
                 case 9:
-                    bord.setBordValue(2, 2, player);
+                    if(player==1)
+                    {
+                        bord.setBordValue(2, 2, 3);
+                    }
+                    else 
+                    {
+                        bord.setBordValue(2, 2, 5);
+                    }
                     this.refereshBordDisply();
                     break;                
             }
@@ -820,6 +892,7 @@ public class Game extends javax.swing.JFrame {
             public void run() {
                Game game = new Game();
                game.setVisible(true);
+               game.setButtonReference();
                game.bord=new Bord();
                game.bord.initializeBord();
                game.setPlayer(1);
