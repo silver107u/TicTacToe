@@ -59,6 +59,7 @@ public class Game extends javax.swing.JFrame {
                   {
                       case 2:
                           button[i][j].setEnabled(true);
+                          button[i][j].setText("");
                           break;
                       case 3:
                           button[i][j].setEnabled(false);

@@ -32,14 +32,15 @@ public class Bord {
         bord[i][j]=value;
     }
     
-    private int checkProbability(int prime)
+
+    
+    public int possibleWin(int player)
     {
-        prime=prime*prime*2;
-        // bord[i][j]
-        // i=row (horizantal) 
-        for(int i=0;i<3;i++)
+        if(player==1)
         {
-            if(bord[i][0]*bord[i][1]*bord[i][2]==prime)
+            for(int i=0;i<3;i++)
+        {
+            if(bord[i][0]*bord[i][1]*bord[i][2]==18)
             {
                 if(bord[i][0]==2)
                 {
@@ -58,7 +59,7 @@ public class Bord {
         //j=colume(vertical)
         for(int j=0;j<3;j++)
         {
-            if(bord[0][j]*bord[1][j]*bord[2][j]==prime)
+            if(bord[0][j]*bord[1][j]*bord[2][j]==18)
             {
                 if(bord[0][j]==2)
                 {
@@ -74,7 +75,7 @@ public class Bord {
             }
         }
         //diagonal
-        if(bord[0][0]*bord[1][1]*bord[2][2]==prime)
+        if(bord[0][0]*bord[1][1]*bord[2][2]==18)
         {
             if(bord[0][0]==2)
             {
@@ -89,7 +90,7 @@ public class Bord {
                 return 9;
             }
         }
-        if(bord[0][2]*bord[1][1]*bord[2][0]==prime)
+        if(bord[0][2]*bord[1][1]*bord[2][0]==18)
         {
             if(bord[0][2]==2)
             {
@@ -105,49 +106,80 @@ public class Bord {
             }
         }
         return 0;
-    }
-    
-    public int possibleWin(int player)
-    {
-        if(player==1)
-        {
-            checkProbability(3);
         }
         else 
         {
-            checkProbability(5);
-        }
-        return 0;
-    }
-    
-    //check the winning criteria of players 
-    private boolean checkCriteria(int prime)
-    {
-        prime=prime*prime*prime;
-        for(int i=0;i<3;i++)
+            for(int i=0;i<3;i++)
         {
-            if(bord[i][0]*bord[i][0]*bord[i][0]==prime)
+            if(bord[i][0]*bord[i][1]*bord[i][2]==50)
             {
-                return true;
+                if(bord[i][0]==2)
+                {
+                    return 3*i+1;
+                }
+                else if(bord[i][1]==2)
+                {
+                    return 3*i+2;
+                }
+                else 
+                {
+                    return 3*i+3;
+                }
             }
         }
+        //j=colume(vertical)
         for(int j=0;j<3;j++)
         {
-            if(bord[0][j]*bord[1][j]*bord[2][j]==prime)
+            if(bord[0][j]*bord[1][j]*bord[2][j]==50)
             {
-                return true;
+                if(bord[0][j]==2)
+                {
+                    return j+1;
+                }
+                else if(bord[0][j]==2){
+                    return j+4;
+                }
+                else 
+                {
+                    return j+7;
+                }
             }
         }
-        if(bord[0][0]*bord[1][1]*bord[2][2]==prime)
+        //diagonal
+        if(bord[0][0]*bord[1][1]*bord[2][2]==50)
         {
-            return true;
+            if(bord[0][0]==2)
+            {
+                return 1;
+            }
+            else if(bord[1][1]==2)
+            {
+                return 5;
+            }
+            else 
+            {
+                return 9;
+            }
         }
-        if(bord[0][2]*bord[1][1]*bord[2][0]==prime)
+        if(bord[0][2]*bord[1][1]*bord[2][0]==50)
         {
-            return true;
+            if(bord[0][2]==2)
+            {
+                return 3;
+            }
+            else if(bord[1][1]==2)
+            {
+                return 5;
+            }
+            else 
+            {
+                return 7;
+            }
         }
-        return false;
+        return 0;
+        }
     }
+    
     
     
     //check it the player won or not
@@ -155,13 +187,56 @@ public class Bord {
     {
         if(player ==1)
         {
-            checkCriteria(3);
+            for(int i=0;i<3;i++)
+            {
+                if(bord[i][0]*bord[i][1]*bord[i][2]==27)
+                {
+                    return true;
+                }
+            }
+            for(int j=0;j<3;j++)
+            {
+                if(bord[0][j]*bord[1][j]*bord[2][j]==27)
+                {
+                    return true;
+                }
+            }
+            if(bord[0][0]*bord[1][1]*bord[2][2]==27)
+            {
+                return true;
+            }
+            if(bord[0][2]*bord[1][1]*bord[2][0]==27)
+            {
+                return true;
+            }
+            return false;
         }
         else 
         {
-            checkCriteria(5);
+            for(int i=0;i<3;i++)
+            {
+                if(bord[i][0]*bord[i][1]*bord[i][2]==125)
+                {
+                    return true;
+                }
+            }
+            for(int j=0;j<3;j++)
+            {
+                if(bord[0][j]*bord[1][j]*bord[2][j]==125)
+                {
+                    return true;
+                }
+            }
+            if(bord[0][0]*bord[1][1]*bord[2][2]==125)
+            {
+                return true;
+            }
+            if(bord[0][2]*bord[1][1]*bord[2][0]==125)
+            {
+                return true;
+            }
+        return false;
         }
-        return (false);
     }
     
     public boolean isBordFilled()
